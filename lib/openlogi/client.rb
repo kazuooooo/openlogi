@@ -1,13 +1,9 @@
 module Openlogi
   class Client
-    attr_accessor :last_response
+    attr_accessor :last_response, :configuration
 
-    def configure
-      yield configuration
-    end
-
-    def configuration
-      @configuration ||= Openlogi::Configuration.new
+    def initialize
+      @configuration = Openlogi.configuration
     end
 
     def test_mode?
