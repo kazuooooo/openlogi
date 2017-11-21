@@ -13,6 +13,7 @@ module Openlogi
 
     def validate!
       raise BadRequestError.new(self) if bad_request?
+      raise UnprocessableEntity.new(self) if unprocessible_entity?
       raise AccessDeniedError.new(self) if access_denied?
       raise InternalServerError.new(self) if internal_server_error?
     end
@@ -23,6 +24,10 @@ module Openlogi
 
     def access_denied?
       response.response_code == 401
+    end
+
+    def unprocessible_entity?
+      response.response_code == 422
     end
 
     def internal_server_error?

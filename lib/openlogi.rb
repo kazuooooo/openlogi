@@ -27,6 +27,7 @@ require "openlogi/error"
 require "openlogi/bad_request_error"
 require "openlogi/access_denied_error"
 require "openlogi/internal_server_error"
+require "openlogi/unprocessable_entity"
 require "openlogi/client"
 
 module Openlogi
