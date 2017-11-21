@@ -1,5 +1,5 @@
 module Openlogi
-  class Error < Exception
+  class Error < StandardError
     def initialize(response)
       super(response.error_description)
     end
